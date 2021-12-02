@@ -1,9 +1,10 @@
 class Submarine
-  attr_reader :horizontal, :depth
+  attr_reader :horizontal, :depth, :aim
 
   def initialize
     @horizontal = 0
     @depth = 0
+    @aim = 0
   end
 
   def horizontal
@@ -12,6 +13,10 @@ class Submarine
 
   def depth
     @depth
+  end
+
+  def aim
+    @aim
   end
 
   def setHorizontal(val)
@@ -24,14 +29,17 @@ class Submarine
 
   def forward(val)
     @horizontal += val
+    @depth += @aim * val
   end
 
   def up(val)
-    @depth -= val
+    # part 1 - @depth -= val
+    @aim -= val
   end
 
   def down(val)
-    @depth += val
+    # part 1 - @depth += val
+    @aim += val
   end
 
   def position
